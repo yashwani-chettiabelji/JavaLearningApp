@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Learning App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Java Learning App</h1>
+
+    <section>
+        <h2>Learn Java</h2>
+
+        <div class="topic">
+            <h3>Variables</h3>
+            <p>Variables are used to store data values in Java.</p>
+        </div>
+
+        <div class="topic">
+            <h3>Data Types</h3>
+            <p>Java supports int, float, double, char, boolean and more.</p>
+        </div>
+
+        <div class="topic">
+            <h3>Loops</h3>
+            <p>Loops are used to execute a block of code repeatedly.</p>
+        </div>
+
+        <div class="topic">
+            <h3>OOP Concepts</h3>
+            <p>Class, Object, Inheritance, Polymorphism, Encapsulation and Abstraction.</p>
+        </div>
+    </section>
+
+    <section class="quiz">
+        <h2>Java Quiz</h2>
+
+        <div class="question">
+            <p>1. Which company developed Java?</p>
+            <input type="radio" name="q1" value="a"> Microsoft<br>
+            <input type="radio" name="q1" value="b"> Sun Microsystems<br>
+            <input type="radio" name="q1" value="c"> Google<br>
+        </div>
+
+        <div class="question">
+            <p>2. Which keyword is used for inheritance?</p>
+            <input type="radio" name="q2" value="a"> implement<br>
+            <input type="radio" name="q2" value="b"> inherit<br>
+            <input type="radio" name="q2" value="c"> extends<br>
+        </div>
+
+        <div class="question">
+            <p>3. JVM stands for?</p>
+            <input type="radio" name="q3" value="a"> Java Virtual Machine<br>
+            <input type="radio" name="q3" value="b"> Java Variable Method<br>
+            <input type="radio" name="q3" value="c"> Java Version Manager<br>
+        </div>
+
+        <button onclick="checkQuiz()">Submit Quiz</button>
+
+        <h3 id="result"></h3>
+    </section>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
