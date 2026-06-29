@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 :root {
-    --primary: #f89820; /* Java orange */
+    --primary: #f89820; 
     --primary-dark: #e07a10;
     --bg: #f3f4f6;
     --card-bg: #ffffff;
@@ -8,7 +10,6 @@
     --border: #e2e8f0;
 }
 
-/* Dark Theme Variables */
 [data-theme="dark"] {
     --bg: #0f172a;
     --card-bg: #1e293b;
@@ -18,7 +19,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg);
     color: var(--text);
     margin: 0;
@@ -58,20 +59,24 @@ h3 { margin-top: 0; }
     background: transparent;
     border: 2px solid var(--primary);
     color: var(--text);
-    padding: 8px 16px;
-    width: auto;
-    margin-top: 0;
-    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .theme-btn:hover {
     background: var(--primary);
-    color: #fff;
 }
 
 .modules {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
 }
 
@@ -80,6 +85,7 @@ h3 { margin-top: 0; }
     border: 1px solid var(--border);
     padding: 15px;
     border-radius: 8px;
+    cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s, background-color 0.3s;
 }
 
@@ -104,7 +110,7 @@ label {
     cursor: pointer;
 }
 
-button {
+.submit-btn {
     background-color: var(--primary);
     color: white;
     border: none;
@@ -118,7 +124,7 @@ button {
     margin-top: 15px;
 }
 
-button:hover { background-color: var(--primary-dark); }
+.submit-btn:hover { background-color: var(--primary-dark); }
 
 .result-box {
     margin-top: 20px;
@@ -126,4 +132,34 @@ button:hover { background-color: var(--primary-dark); }
     font-size: 1.2rem;
     font-weight: bold;
     min-height: 24px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text);
 }
