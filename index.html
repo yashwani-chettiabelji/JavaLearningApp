@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,10 @@
 <body>
     <div class="container">
         <header>
-            <h1>☕ Learn Java</h1>
+            <div class="header-top">
+                <h1>☕ Learn Java</h1>
+                <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+            </div>
             <p>Master the basics step-by-step.</p>
         </header>
 
@@ -31,10 +34,19 @@
                 <h3>OOP Concepts</h3>
                 <p>Class, Object, Inheritance, Polymorphism, Encapsulation, Abstraction.</p>
             </div>
+            <div class="card">
+                <h3>Arrays</h3>
+                <p>Store multiple values of the same type in a single variable.</p>
+            </div>
+            <div class="card">
+                <h3>Exceptions</h3>
+                <p>Handle runtime errors safely using <code>try</code> and <code>catch</code> blocks.</p>
+            </div>
         </section>
 
         <section class="quiz-section">
             <h2>Knowledge Check</h2>
+            
             <div class="question" id="q1-container">
                 <p>1. Which company developed Java?</p>
                 <label><input type="radio" name="q1" value="a"> Microsoft</label>
@@ -54,6 +66,20 @@
                 <label><input type="radio" name="q3" value="a"> Java Virtual Machine</label>
                 <label><input type="radio" name="q3" value="b"> Java Variable Method</label>
                 <label><input type="radio" name="q3" value="c"> Java Version Manager</label>
+            </div>
+
+            <div class="question" id="q4-container">
+                <p>4. Which of these is not a primitive data type?</p>
+                <label><input type="radio" name="q4" value="a"> int</label>
+                <label><input type="radio" name="q4" value="b"> String</label>
+                <label><input type="radio" name="q4" value="c"> boolean</label>
+            </div>
+
+            <div class="question" id="q5-container">
+                <p>5. What is the size of an int variable?</p>
+                <label><input type="radio" name="q5" value="a"> 8 bit</label>
+                <label><input type="radio" name="q5" value="b"> 16 bit</label>
+                <label><input type="radio" name="q5" value="c"> 32 bit</label>
             </div>
 
             <button onclick="checkQuiz()">Submit Quiz</button>
