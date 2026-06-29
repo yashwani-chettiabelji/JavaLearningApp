@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Learning App for Devi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,80 +12,95 @@
         <header>
             <div class="header-top">
                 <h1>☕ Learn Java</h1>
-                <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+                <button id="theme-toggle" class="theme-btn" title="Toggle Theme">🌙</button>
             </div>
             <p>Master the basics step-by-step.</p>
         </header>
 
         <section class="modules">
             <h2>Core Concepts</h2>
-            <div class="card">
+            <div class="card" onclick="openModal('Variables')">
                 <h3>Variables</h3>
-                <p>Store data values (e.g., <code>int age = 21;</code>).</p>
+                <p>Store data values.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('Data Types')">
                 <h3>Data Types</h3>
-                <p>Primitives like <code>int</code>, <code>double</code>, <code>boolean</code>, and <code>char</code>.</p>
+                <p>Primitives like int, double, boolean.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('Loops')">
                 <h3>Loops</h3>
-                <p>Execute code repeatedly using <code>for</code>, <code>while</code>, or <code>do-while</code>.</p>
+                <p>Execute code repeatedly.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('OOP Concepts')">
                 <h3>OOP Concepts</h3>
-                <p>Class, Object, Inheritance, Polymorphism, Encapsulation, Abstraction.</p>
+                <p>Class, Object, Inheritance, Polymorphism.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('Arrays')">
                 <h3>Arrays</h3>
-                <p>Store multiple values of the same type in a single variable.</p>
+                <p>Store multiple values.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('Exceptions')">
                 <h3>Exceptions</h3>
-                <p>Handle runtime errors safely using <code>try</code> and <code>catch</code> blocks.</p>
+                <p>Handle runtime errors safely.</p>
+            </div>
+            <div class="card" onclick="openModal('Methods')">
+                <h3>Methods</h3>
+                <p>Blocks of code that run when called.</p>
+            </div>
+            <div class="card" onclick="openModal('Collections')">
+                <h3>Collections</h3>
+                <p>Framework for groups of objects.</p>
+            </div>
+            <div class="card" onclick="openModal('Multithreading')">
+                <h3>Multithreading</h3>
+                <p>Execute multiple threads simultaneously.</p>
             </div>
         </section>
 
         <section class="quiz-section">
             <h2>Knowledge Check</h2>
-            
             <div class="question" id="q1-container">
                 <p>1. Which company developed Java?</p>
                 <label><input type="radio" name="q1" value="a"> Microsoft</label>
                 <label><input type="radio" name="q1" value="b"> Sun Microsystems</label>
                 <label><input type="radio" name="q1" value="c"> Google</label>
             </div>
-
             <div class="question" id="q2-container">
                 <p>2. Which keyword is used for inheritance?</p>
                 <label><input type="radio" name="q2" value="a"> implement</label>
                 <label><input type="radio" name="q2" value="b"> inherit</label>
                 <label><input type="radio" name="q2" value="c"> extends</label>
             </div>
-
             <div class="question" id="q3-container">
                 <p>3. JVM stands for?</p>
                 <label><input type="radio" name="q3" value="a"> Java Virtual Machine</label>
                 <label><input type="radio" name="q3" value="b"> Java Variable Method</label>
                 <label><input type="radio" name="q3" value="c"> Java Version Manager</label>
             </div>
-
             <div class="question" id="q4-container">
                 <p>4. Which of these is not a primitive data type?</p>
                 <label><input type="radio" name="q4" value="a"> int</label>
                 <label><input type="radio" name="q4" value="b"> String</label>
                 <label><input type="radio" name="q4" value="c"> boolean</label>
             </div>
-
             <div class="question" id="q5-container">
                 <p>5. What is the size of an int variable?</p>
                 <label><input type="radio" name="q5" value="a"> 8 bit</label>
                 <label><input type="radio" name="q5" value="b"> 16 bit</label>
                 <label><input type="radio" name="q5" value="c"> 32 bit</label>
             </div>
-
-            <button onclick="checkQuiz()">Submit Quiz</button>
+            <button class="submit-btn" onclick="checkQuiz()">Submit Quiz</button>
             <div id="result" class="result-box"></div>
         </section>
+
+        <!-- Modal -->
+        <div id="note-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2 id="modal-title">Title</h2>
+                <div id="modal-body">Content goes here...</div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
