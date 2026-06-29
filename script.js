@@ -1,23 +1,24 @@
-function checkQuiz(){
-
+const checkQuiz = () => {
     let score = 0;
+    const answers = { q1: "b", q2: "c", q3: "a" };
 
-    let q1 = document.querySelector('input[name="q1"]:checked');
-    let q2 = document.querySelector('input[name="q2"]:checked');
-    let q3 = document.querySelector('input[name="q3"]:checked');
+    ['q1', 'q2', 'q3'].forEach(q => {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const container = document.getElementById(`${q}-container`);
+        
+        if (selected) {
+            if (selected.value === answers[q]) {
+                score++;
+                container.style.borderColor = "#22c55e"; // Green 
+            } else {
+                container.style.borderColor = "#ef4444"; // Red 
+            }
+        } else {
+            container.style.borderColor = "#ef4444"; // Red if skipped
+        }
+    });
 
-    if(q1 && q1.value === "b"){
-        score++;
-    }
-
-    if(q2 && q2.value === "c"){
-        score++;
-    }
-
-    if(q3 && q3.value === "a"){
-        score++;
-    }
-
-    document.getElementById("result").innerHTML =
-        "Your Score: " + score + "/3";
-}
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `You scored ${score} out of 3! 🎉`;
+    resultDiv.style.color = score === 3 ? "#22c55e" : (score > 0 ? "#f59e0b" : "#ef4444");
+};

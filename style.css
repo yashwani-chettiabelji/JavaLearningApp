@@ -1,35 +1,96 @@
-body{
-    font-family: Arial, sans-serif;
-    background:#f4f4f4;
-    margin:0;
-    padding:20px;
+:root {
+    --primary: #f89820; /* Java orange */
+    --primary-dark: #e07a10;
+    --bg: #f3f4f6;
+    --card-bg: #ffffff;
+    --text: #334155;
+    --border: #e2e8f0;
 }
 
-.container{
-    max-width:800px;
-    margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-h1{
-    text-align:center;
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.topic{
-    background:#eef;
-    padding:10px;
-    margin:10px 0;
-    border-radius:5px;
+header {
+    text-align: center;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-.quiz{
-    margin-top:30px;
+h1 { color: var(--primary); margin: 0; }
+h2 { color: #1e293b; margin-top: 30px; border-left: 4px solid var(--primary); padding-left: 10px;}
+
+.modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
 }
 
-button{
-    padding:10px 20px;
-    font-size:16px;
-    cursor:pointer;
+.card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-color: var(--primary);
+}
+
+.question {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s;
+}
+
+label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: background 0.2s;
+    margin-top: 15px;
+}
+
+button:hover { background-color: var(--primary-dark); }
+
+.result-box {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-height: 24px;
 }

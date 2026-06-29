@@ -1,69 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Java Learning App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Learning App for Devi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>☕ Learn Java</h1>
+            <p>Master the basics step-by-step.</p>
+        </header>
 
-<div class="container">
-    <h1>Java Learning App</h1>
+        <section class="modules">
+            <h2>Core Concepts</h2>
+            <div class="card">
+                <h3>Variables</h3>
+                <p>Store data values (e.g., <code>int age = 21;</code>).</p>
+            </div>
+            <div class="card">
+                <h3>Data Types</h3>
+                <p>Primitives like <code>int</code>, <code>double</code>, <code>boolean</code>, and <code>char</code>.</p>
+            </div>
+            <div class="card">
+                <h3>Loops</h3>
+                <p>Execute code repeatedly using <code>for</code>, <code>while</code>, or <code>do-while</code>.</p>
+            </div>
+            <div class="card">
+                <h3>OOP Concepts</h3>
+                <p>Class, Object, Inheritance, Polymorphism, Encapsulation, Abstraction.</p>
+            </div>
+        </section>
 
-    <section>
-        <h2>Learn Java</h2>
+        <section class="quiz-section">
+            <h2>Knowledge Check</h2>
+            <div class="question" id="q1-container">
+                <p>1. Which company developed Java?</p>
+                <label><input type="radio" name="q1" value="a"> Microsoft</label>
+                <label><input type="radio" name="q1" value="b"> Sun Microsystems</label>
+                <label><input type="radio" name="q1" value="c"> Google</label>
+            </div>
 
-        <div class="topic">
-            <h3>Variables</h3>
-            <p>Variables are used to store data values in Java.</p>
-        </div>
+            <div class="question" id="q2-container">
+                <p>2. Which keyword is used for inheritance?</p>
+                <label><input type="radio" name="q2" value="a"> implement</label>
+                <label><input type="radio" name="q2" value="b"> inherit</label>
+                <label><input type="radio" name="q2" value="c"> extends</label>
+            </div>
 
-        <div class="topic">
-            <h3>Data Types</h3>
-            <p>Java supports int, float, double, char, boolean and more.</p>
-        </div>
+            <div class="question" id="q3-container">
+                <p>3. JVM stands for?</p>
+                <label><input type="radio" name="q3" value="a"> Java Virtual Machine</label>
+                <label><input type="radio" name="q3" value="b"> Java Variable Method</label>
+                <label><input type="radio" name="q3" value="c"> Java Version Manager</label>
+            </div>
 
-        <div class="topic">
-            <h3>Loops</h3>
-            <p>Loops are used to execute a block of code repeatedly.</p>
-        </div>
-
-        <div class="topic">
-            <h3>OOP Concepts</h3>
-            <p>Class, Object, Inheritance, Polymorphism, Encapsulation and Abstraction.</p>
-        </div>
-    </section>
-
-    <section class="quiz">
-        <h2>Java Quiz</h2>
-
-        <div class="question">
-            <p>1. Which company developed Java?</p>
-            <input type="radio" name="q1" value="a"> Microsoft<br>
-            <input type="radio" name="q1" value="b"> Sun Microsystems<br>
-            <input type="radio" name="q1" value="c"> Google<br>
-        </div>
-
-        <div class="question">
-            <p>2. Which keyword is used for inheritance?</p>
-            <input type="radio" name="q2" value="a"> implement<br>
-            <input type="radio" name="q2" value="b"> inherit<br>
-            <input type="radio" name="q2" value="c"> extends<br>
-        </div>
-
-        <div class="question">
-            <p>3. JVM stands for?</p>
-            <input type="radio" name="q3" value="a"> Java Virtual Machine<br>
-            <input type="radio" name="q3" value="b"> Java Variable Method<br>
-            <input type="radio" name="q3" value="c"> Java Version Manager<br>
-        </div>
-
-        <button onclick="checkQuiz()">Submit Quiz</button>
-
-        <h3 id="result"></h3>
-    </section>
-</div>
-
-<script src="script.js"></script>
-
+            <button onclick="checkQuiz()">Submit Quiz</button>
+            <div id="result" class="result-box"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
