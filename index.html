@@ -3,105 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Learning App for Devi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Production-ready interactive Java learning app with 17 guided topics, code examples, progress tracking, and an 8-question quiz.">
+    <meta name="theme-color" content="#f89820">
+    <meta name="color-scheme" content="light dark">
+    <meta property="og:title" content="Learn Java — Interactive Basics">
+    <meta property="og:description" content="Master Java fundamentals with guided topics, code samples, and a knowledge-check quiz.">
+    <meta property="og:type" content="website">
+    <title>Learn Java — Interactive Basics</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('javaAppTheme');
+                if (theme === 'light' || theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', theme);
+                } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) { /* private browsing */ }
+        })();
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <div class="container">
-        <header>
+        <header class="site-header">
             <div class="header-top">
-                <h1>☕ Learn Java</h1>
-                <button id="theme-toggle" class="theme-btn" title="Toggle Theme">🌙</button>
+                <div class="brand">
+                    <h1>☕ Learn Java</h1>
+                    <p class="header-tagline">Master Java from the ground up — explore <span id="topic-count-label">17</span> guided topics with examples, then test yourself with the quiz below.</p>
+                </div>
+                <button id="theme-toggle" class="theme-btn" type="button" aria-label="Switch to dark mode">🌙</button>
             </div>
-            <p>Master the basics step-by-step.</p>
         </header>
 
-        <section class="modules">
-            <h2>Core Concepts</h2>
-            <div class="card" onclick="openModal('Variables')">
-                <h3>Variables</h3>
-                <p>Store data values.</p>
-            </div>
-            <div class="card" onclick="openModal('Data Types')">
-                <h3>Data Types</h3>
-                <p>Primitives like int, double, boolean.</p>
-            </div>
-            <div class="card" onclick="openModal('Loops')">
-                <h3>Loops</h3>
-                <p>Execute code repeatedly.</p>
-            </div>
-            <div class="card" onclick="openModal('OOP Concepts')">
-                <h3>OOP Concepts</h3>
-                <p>Class, Object, Inheritance, Polymorphism.</p>
-            </div>
-            <div class="card" onclick="openModal('Arrays')">
-                <h3>Arrays</h3>
-                <p>Store multiple values.</p>
-            </div>
-            <div class="card" onclick="openModal('Exceptions')">
-                <h3>Exceptions</h3>
-                <p>Handle runtime errors safely.</p>
-            </div>
-            <div class="card" onclick="openModal('Methods')">
-                <h3>Methods</h3>
-                <p>Blocks of code that run when called.</p>
-            </div>
-            <div class="card" onclick="openModal('Collections')">
-                <h3>Collections</h3>
-                <p>Framework for groups of objects.</p>
-            </div>
-            <div class="card" onclick="openModal('Multithreading')">
-                <h3>Multithreading</h3>
-                <p>Execute multiple threads simultaneously.</p>
-            </div>
-        </section>
+        <main id="main-content">
+            <section class="modules" aria-label="Core concepts">
+                <h2>Core Concepts</h2>
+                <p class="section-intro">Click any card to open detailed notes with code samples and study tips. Your progress is saved automatically as you read.</p>
 
-        <section class="quiz-section">
-            <h2>Knowledge Check</h2>
-            <div class="question" id="q1-container">
-                <p>1. Which company developed Java?</p>
-                <label><input type="radio" name="q1" value="a"> Microsoft</label>
-                <label><input type="radio" name="q1" value="b"> Sun Microsystems</label>
-                <label><input type="radio" name="q1" value="c"> Google</label>
-            </div>
-            <div class="question" id="q2-container">
-                <p>2. Which keyword is used for inheritance?</p>
-                <label><input type="radio" name="q2" value="a"> implement</label>
-                <label><input type="radio" name="q2" value="b"> inherit</label>
-                <label><input type="radio" name="q2" value="c"> extends</label>
-            </div>
-            <div class="question" id="q3-container">
-                <p>3. JVM stands for?</p>
-                <label><input type="radio" name="q3" value="a"> Java Virtual Machine</label>
-                <label><input type="radio" name="q3" value="b"> Java Variable Method</label>
-                <label><input type="radio" name="q3" value="c"> Java Version Manager</label>
-            </div>
-            <div class="question" id="q4-container">
-                <p>4. Which of these is not a primitive data type?</p>
-                <label><input type="radio" name="q4" value="a"> int</label>
-                <label><input type="radio" name="q4" value="b"> String</label>
-                <label><input type="radio" name="q4" value="c"> boolean</label>
-            </div>
-            <div class="question" id="q5-container">
-                <p>5. What is the size of an int variable?</p>
-                <label><input type="radio" name="q5" value="a"> 8 bit</label>
-                <label><input type="radio" name="q5" value="b"> 16 bit</label>
-                <label><input type="radio" name="q5" value="c"> 32 bit</label>
-            </div>
-            <button class="submit-btn" onclick="checkQuiz()">Submit Quiz</button>
-            <div id="result" class="result-box"></div>
-        </section>
+                <div class="progress-area" aria-label="Topic progress">
+                    <div class="progress-label">
+                        <span id="progress-text">0 topics viewed</span>
+                        <button id="reset-progress" class="text-btn" type="button">Reset progress</button>
+                    </div>
+                    <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-labelledby="progress-text">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
 
-        <!-- Modal -->
-        <div id="note-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeModal()">&times;</span>
-                <h2 id="modal-title">Title</h2>
-                <div id="modal-body">Content goes here...</div>
-            </div>
+                <div class="search-row">
+                    <label class="search-label" for="topic-search">Search topics</label>
+                    <input type="search" id="topic-search" class="topic-search" placeholder="Filter by name or keyword…" autocomplete="off" enterkeyhint="search">
+                </div>
+                <p id="search-empty" class="search-empty" hidden></p>
+
+                <div id="topics-grid" class="topics-grid"></div>
+            </section>
+
+            <section class="quiz-section" aria-label="Knowledge check quiz">
+                <h2>Knowledge Check</h2>
+                <p class="section-intro">Answer all <span id="quiz-count-label">8</span> questions to see your score. Wrong answers show the correct choice and a short explanation.</p>
+                <form id="quiz-form" novalidate>
+                    <div id="quiz-questions"></div>
+                    <button class="submit-btn" type="submit">Submit Quiz</button>
+                </form>
+                <div id="result" class="result-box" role="status" aria-live="polite"></div>
+                <button id="retake-btn" class="retake-btn" type="button" hidden>Retake Quiz</button>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>Vanilla HTML, CSS &amp; JavaScript — no frameworks, no build step.</p>
+            <p class="footer-meta"><span id="app-version">v2.0.0</span> · Keyboard: <kbd>Tab</kbd> navigate · <kbd>Enter</kbd>/<kbd>Space</kbd> open · <kbd>Esc</kbd> close</p>
+        </footer>
+    </div>
+
+    <div id="note-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <button id="modal-close" class="close-btn" type="button" aria-label="Close dialog">&times;</button>
+            <h2 id="modal-title">Title</h2>
+            <div id="modal-body"></div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <noscript>
+        <p class="noscript-banner">JavaScript is required for topic cards, progress tracking, and the quiz. Please enable JavaScript to use this app.</p>
+    </noscript>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js" defer></script>
 </body>
 </html>
